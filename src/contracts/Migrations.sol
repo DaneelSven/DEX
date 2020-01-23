@@ -1,4 +1,5 @@
 pragma solidity >=0.4.21 <0.7.0;
+// this manages all the publishing to the blockchain
 
 contract Migrations {
   address public owner;

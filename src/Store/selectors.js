@@ -1,3 +1,4 @@
+// selector file used to format the returned data 
 import { get, groupBy, reject, maxBy, minBy } from 'lodash'
 import { createSelector } from 'reselect'
 import moment from 'moment'
@@ -14,6 +15,7 @@ export const formatBalance = (balance) => {
 }
 
 const account = state => get(state, 'web3.account')
+console.log(account)
 export const accountSelector = createSelector(account, a => a)
 
 const web3 = state => get(state, 'web3.connection')
@@ -375,3 +377,9 @@ export const tokenDepositAmountSelector = createSelector(tokenDepositAmount, amo
 
 const tokenWithdrawAmount = state => get(state, 'exchange.tokenWithdrawAmount', null)
 export const tokenWithdrawAmountSelector = createSelector(tokenWithdrawAmount, amount => amount)
+
+const buyOrder = state => get(state, 'exchange.buyOrder', {})
+export const buyOrderSelector = createSelector(buyOrder, order => order)
+
+const sellOrder = state => get(state, 'exchange.sellOrder', {})
+export const sellOrderSelector = createSelector(sellOrder, order => order)

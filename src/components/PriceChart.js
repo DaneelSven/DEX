@@ -10,16 +10,16 @@ import {
 
 const priceSymbol = (lastPriceChange) => {
   let output
-  if(lastPriceChange === '+') {
+  if (lastPriceChange === '+') {
     output = <span className="text-success">&#9650;</span> // Green up tiangle
   } else {
     output = <span className="text-danger">&#9660;</span> // Red down triangle
   }
-  return(output)
+  return (output)
 }
 
 const showPriceChart = (priceChart) => {
-  return(
+  return (
     <div className="price-chart">
       <div className="price">
         <h4>DAPP/ETH &nbsp; {priceSymbol(priceChart.lastPriceChange)} &nbsp; {priceChart.lastPrice}</h4>
@@ -30,11 +30,11 @@ const showPriceChart = (priceChart) => {
 }
 
 const showDummyChart = () => {
-    return (
-        <div className="price-chart">
-            <Chart options={chartOptions} series={dummyData} type='candlestick' width='100%' height='100%'/>
-        </div>
-    )
+  return (
+    <div className="price-chart">
+      <Chart options={chartOptions} series={dummyData} type='candlestick' width='100%' height='100%' />
+    </div>
+  )
 }
 
 class PriceChart extends Component {
@@ -45,7 +45,7 @@ class PriceChart extends Component {
           Price Chart
         </div>
         <div className="card-body">
-            {/* {showDummyChart()} */}
+          {/* {showDummyChart()} */}
           {this.props.priceChartLoaded ? showPriceChart(this.props.priceChart) : <Spinner />}
         </div>
       </div>

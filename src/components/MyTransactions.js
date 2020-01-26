@@ -16,9 +16,9 @@ import { cancelOrder } from '../Store/interactions'
 const showMyFilledOrders = (props) => {
   const { myFilledOrders } = props
 
-  return(
+  return (
     <tbody>
-      { myFilledOrders.map((order) => {
+      {myFilledOrders.map((order) => {
         return (
           <tr key={order.id}>
             <td className="text-muted">{order.formattedTimestamp}</td>
@@ -26,7 +26,7 @@ const showMyFilledOrders = (props) => {
             <td className={`text-${order.orderTypeClass}`}>{order.tokenPrice}</td>
           </tr>
         )
-      }) }
+      })}
     </tbody>
   )
 }
@@ -34,9 +34,9 @@ const showMyFilledOrders = (props) => {
 const showMyOpenOrders = (props) => {
   const { myOpenOrders, dispatch, exchange, account } = props
 
-  return(
+  return (
     <tbody>
-      { myOpenOrders.map((order) => {
+      {myOpenOrders.map((order) => {
         return (
           <tr key={order.id}>
             <td className={`text-${order.orderTypeClass}`}>{order.tokenAmount}</td>
@@ -49,7 +49,7 @@ const showMyOpenOrders = (props) => {
             >X</td>
           </tr>
         )
-      }) }
+      })}
     </tbody>
   )
 }
@@ -72,7 +72,7 @@ class MyTransactions extends Component {
                     <th>DAPP/ETH</th>
                   </tr>
                 </thead>
-                { this.props.showMyFilledOrders ? showMyFilledOrders(this.props) : <Spinner type="table" />}
+                {this.props.showMyFilledOrders ? showMyFilledOrders(this.props) : <Spinner type="table" />}
               </table>
             </Tab>
             <Tab eventKey="orders" title="Orders">
@@ -84,7 +84,7 @@ class MyTransactions extends Component {
                     <th>Cancel</th>
                   </tr>
                 </thead>
-                { this.props.showMyOpenOrders ? showMyOpenOrders(this.props) : <Spinner type="table" />}
+                {this.props.showMyOpenOrders ? showMyOpenOrders(this.props) : <Spinner type="table" />}
               </table>
             </Tab>
           </Tabs>

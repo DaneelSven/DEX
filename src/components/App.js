@@ -20,22 +20,22 @@ class App extends Component {
     const networkId = await web3.eth.net.getId()
     await loadAccount(web3, dispatch)
     const token = await loadToken(web3, networkId, dispatch)
-    if(!token) {
+    if (!token) {
       window.alert('Token smart contract not detected on the current network, please select another network on metamask')
     }
     const exchange = await loadExchange(web3, networkId, dispatch)
-      if(!exchange){
-        window.alert('Token smart contract not detected on the current network, please select another network on metamask')
-      }
+    if (!exchange) {
+      window.alert('Token smart contract not detected on the current network, please select another network on metamask')
     }
-  
+  }
+
 
   render() {
     return (
       <div>
         <Navbar />
-        {this.props.contractsLoaded  ? <Content /> : <div className="content"></div>}
-        
+        {this.props.contractsLoaded ? <Content /> : <div className="content"></div>}
+
       </div>
     );
   }

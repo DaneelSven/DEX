@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 function web3(state = {}, action) {
   switch (action.type) {
     case 'WEB3_LOADED':
-      return { ...state,  connection: action.connection }
+      return { ...state, connection: action.connection }
     case 'WEB3_ACCOUNT_LOADED':
       return { ...state, account: action.account }
     case 'ETHER_BALANCE_LOADED':
@@ -54,7 +54,7 @@ function exchange(state = {}, action) {
       // Prevent duplicate orders
       index = state.filledOrders.data.findIndex(order => order.id === action.order.id);
 
-      if(index === -1) {
+      if (index === -1) {
         data = [...state.filledOrders.data, action.order]
       } else {
         data = state.filledOrders.data
@@ -100,7 +100,7 @@ function exchange(state = {}, action) {
       // Prevent duplicate orders
       index = state.allOrders.data.findIndex(order => order.id === action.order.id);
 
-      if(index === -1) {
+      if (index === -1) {
         data = [...state.allOrders.data, action.order]
       } else {
         data = state.allOrders.data

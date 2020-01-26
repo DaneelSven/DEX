@@ -18,7 +18,7 @@ const wait = (seconds) => {
 }
 // scripts adjusted for truffle which exports a asychronys function which accepts a callback function and it must call, 
 // this function each time the script is finished.
-module.exports = async function(callback) {
+module.exports = async function (callback) {
   try {
     // Fetch accounts from wallet - these are unlocked
     const accounts = await web3.eth.getAccounts()
@@ -124,12 +124,12 @@ module.exports = async function(callback) {
       result = await exchange.makeOrder(token.address, tokens(10 * i), ETHER_ADDRESS, amount, { from: user1 })
       amountinEther += ether(0.01);
       console.log(`Made order from ${user1}`)
-      
+
       // Wait 1 second
       await wait(1)
     }
 
-    
+
     // User 2 makes 15 orders
     for (let i = 1; i <= 15; i++) {
       let amount = ether(0.01)
@@ -141,7 +141,7 @@ module.exports = async function(callback) {
     }
 
   }
-  catch(error) {
+  catch (error) {
     console.log(error)
   }
 

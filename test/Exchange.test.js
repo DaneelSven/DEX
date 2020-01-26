@@ -50,7 +50,7 @@ contract('Exchange', ([deployer, feeAccount, user1, user2]) => {
 
     beforeEach(async () => {
       amount = ether(1)
-      result = await exchange.depositEther({ from: user1, value: amount})
+      result = await exchange.depositEther({ from: user1, value: amount })
     })
 
     it('tracks the Ether deposit', async () => {
@@ -143,7 +143,7 @@ contract('Exchange', ([deployer, feeAccount, user1, user2]) => {
     })
 
     describe('failure', () => {
-      it('rejects Ether deposits', async() => {
+      it('rejects Ether deposits', async () => {
         await exchange.depositToken(ETHER_ADDRESS, tokens(10), { from: user1 }).should.be.rejectedWith(EVM_REVERT)
       })
 
@@ -366,5 +366,5 @@ contract('Exchange', ([deployer, feeAccount, user1, user2]) => {
     })
   })
 
-  
+
 })
